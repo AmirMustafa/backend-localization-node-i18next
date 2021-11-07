@@ -5,9 +5,12 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
-// var usersRouter = require('./routes/users');
+
+const { i18next, middleware } = require("./i18n-server");
 
 var app = express();
+
+app.use(middleware.handle(i18next));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

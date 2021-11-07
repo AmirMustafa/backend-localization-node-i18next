@@ -29,15 +29,15 @@ const exportUser = async (req, res) => {
   try {
     await workbook.xlsx.writeFile(`${path}/users.xlsx`).then(() => {
       res.send({
-        status: "success",
-        message: "file successfully downloaded",
+        status: req.t("success"),
+        message: req.t("downloadSuccess"),
         path: `${path}/users.xlsx`,
       });
     });
   } catch (err) {
     res.send({
-      status: "error",
-      message: "Something went wrong",
+      status: req.t("error"),
+      message: req.t("somethingWentWrong"),
     });
   }
 };
